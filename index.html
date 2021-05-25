@@ -462,7 +462,6 @@ Location (Longitude):<input  id="0BC1X000000Co8y" name="0BC1X000000Co8y" size="2
             <!----> 
             <div><input type="checkbox" name="ja_takk_begge_deler" value="1" tabindex="-1" autocomplete="off" style="display: none !important;">  <inpyt type="submit" class="btn btn-solid btn-arrow btn-arrow-fixed">Send skjema</button></div>
          </div>
-         <div class="col-s-6"><img src="./Meld fra om feil på veglys – Haugaland Kraft_files/haugaland-kraft-meld-om-morke-gatelys-01.svg" alt="" role="presentation" class="form__pages--image"></div>
       </div>
       <div class="form__pages--page form__pages--page-confirmation row" style="display: none;">
          <div class="col-s-6"></div>
@@ -470,54 +469,7 @@ Location (Longitude):<input  id="0BC1X000000Co8y" name="0BC1X000000Co8y" size="2
       </div>
    </div>
 </form>
-            <!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
-
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <FORM> element to your page.             -->
-<!--  ----------------------------------------------------------------------  -->
-
-<form action="https://hkraft--test.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
-
-<input type=hidden name="orgid" value="00D1X0000008eHm">
-<input type=hidden name="retURL" value="https://hkraft.no/meld-inn-morke-gatelys/">
-
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-<!--  these lines if you wish to test in debug mode.                          -->
-<!--  <input type="hidden" name="debug" value=1>                              -->
-<!--  <input type="hidden" name="debugEmail"                                  -->
-<!--  value="ole.erik.brennhagen@fluidogroup.com">                            -->
-<!--  ----------------------------------------------------------------------  -->
-
-<label for="email">E-post</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
-
-<label for="phone">Telefon</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
-
-<label for="subject">Stolpenummer</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" placeholder="Skriv 0 om du ikke har stolpenummeret" required="required"/><br>
-
-<label for="description">Beskrivelse</label><textarea name="description"></textarea><br>
-
-<label for="reason">Saksårsak</label><select  id="reason" name="reason"><option value="">--Ingen--</option>
-<option value="Veglys" SELECTED>Veglys</option>
-</select><br>
-
-	<div  id="mapDiv" style="display: none" ></div>
-
-
-Location (Latitude):<input  id="0BC1X000000Co8x" name="0BC1X000000Co8x" size="20" type="text" DISABLED /><br>
-
-Location (Longitude):<input  id="0BC1X000000Co8y" name="0BC1X000000Co8y" size="20" type="text" DISABLED /><br>
-
-<div id="location"></div>
-<input type="submit" name="submit">
-
-</form>
+           
  <script>
       var div  = document.getElementById("location");
       function getLocation() {

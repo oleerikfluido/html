@@ -372,7 +372,8 @@ height: 500px;
                </div>
                <!---->
             </div>
-            
+            <div id="location"></div>
+
 	<div  id="mapDiv" style="display: none" ></div>
 
 
@@ -380,7 +381,6 @@ Location (Latitude):<input  id="0BC1X000000Co8x" name="0BC1X000000Co8x" size="20
 
 Location (Longitude):<input  id="0BC1X000000Co8y" name="0BC1X000000Co8y" size="20" type="text" DISABLED /><br>
 
-<div id="location"></div>
             <div>
                <!----> <!----> <!----> 
                <fieldset class="form__field-group form__field--conditionally-hidable">
@@ -464,7 +464,6 @@ Location (Longitude):<input  id="0BC1X000000Co8y" name="0BC1X000000Co8y" size="2
          </div>
       </div>
       <div class="form__pages--page form__pages--page-confirmation row" style="display: none;">
-         <div class="col-s-6"></div>
          <div class="col-s-6"><img src="./Meld fra om feil på veglys – Haugaland Kraft_files/haugaland-kraft-meld-om-morke-gatelys-02.svg" role="presentation"></div>
       </div>
    </div>
@@ -503,6 +502,7 @@ getLocation();
         {
                 var mapdiv  = document.getElementById("mapDiv");
                 mapdiv.style.display = "block";
+                div.innerHTML = "Vi kunne ikke hente din lokasjon. I stedet for må du klikke på kartet for å vise lysets lokasjon"
 
         }
       })();

@@ -485,12 +485,13 @@ Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="2
       }
 
       function showPosition(position) {
-        div.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+        div.innerHTML = "Vi fant din lokasjon og vil bruke den i feilretting"
         var lat  = document.getElementById("0BC1X000000CoHf");
         var lon  = document.getElementById("0BC1X000000CoHg");
-        
-        lat.value=position.coords.latitude.replace(".", ",");
-        lon.value=position.coords.longitude.replace(".", ",");
+        var latval = position.coords.latitude
+	var lonval = position.coords.longitude
+        lat.value=latval.replace(".", ",");
+        lon.value=lonval.replace(".", ",");
         
       }
 

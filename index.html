@@ -488,8 +488,8 @@ Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="2
         div.innerHTML = "Vi fant din lokasjon og vil bruke den i feilretting"
         var lat  = document.getElementById("0BC1X000000CoHf");
         var lon  = document.getElementById("0BC1X000000CoHg");
-        var latval = position.coords.latitude
-	var lonval = position.coords.longitude
+        var latval = String(position.coords.latitude)
+	var lonval = String(position.coords.longitude)
         lat.value=latval.replace(".", ",");
         lon.value=lonval.replace(".", ",");
         

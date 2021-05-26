@@ -370,10 +370,10 @@ height: 500px;
             <div>
                <!----> <!----> <!----> <!----> <!----> 
                <div class="form__field-group form__field--text">
-                  <label for="subject">
+                  <label for="Subject">
                      Stolpenummer <!----> <!---->
                   </label>
-                  <input name="subject" id="subject" placeholder="Skriv 0 om du ikke har stolpenummeret" required="required" tabindex="0" type="text"> <!---->
+                  <input name="Subject" id="Subject" placeholder="Skriv 0 om du ikke har stolpenummeret" required="required" tabindex="0" type="text"> <!---->
                </div>
                <!---->
             </div>
@@ -382,9 +382,9 @@ height: 500px;
 	<div  id="mapDiv" style="display: none" ></div>
 
 
-Location (Latitude):<input  id="0BC1X000000Co8x" name="0BC1X000000Co8x" size="20" type="text" /><br>
+Location (Latitude):<input  id="0BC1X000000CoHf" name="0BC1X000000CoHf" size="20" type="text"  /><br>
 
-Location (Longitude):<input  id="0BC1X000000Co8y" name="0BC1X000000Co8y" size="20" type="text" /><br>
+Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="20" type="text"  /><br>
 
             <div>
                <!----> <!----> <!----> 
@@ -486,11 +486,11 @@ Location (Longitude):<input  id="0BC1X000000Co8y" name="0BC1X000000Co8y" size="2
 
       function showPosition(position) {
         div.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-        var lat  = document.getElementById("0BC1X000000Co8x");
-        var lon  = document.getElementById("0BC1X000000Co8y");
+        var lat  = document.getElementById("0BC1X000000CoHf");
+        var lon  = document.getElementById("0BC1X000000CoHg");
         
-        lat.value=position.coords.latitude
-        lon.value=position.coords.longitude
+        lat.value=position.coords.latitude.replace(".", ",");
+        lon.value=position.coords.longitude.replace(".", ",");
         
       }
 
@@ -823,15 +823,30 @@ function onMapClick(e) {
     if (10>Math.abs(lon))  gps += "0";
     if (100>Math.abs(lon)) gps += "0";
     gps += Math.abs(lon).toFixed(5);
+    var textArea = document.createElement("textarea");
+    textArea.style.position = 'fixed';
+    textArea.style.top = 0;
+    textArea.style.left = 0;
+    textArea.style.width = '2em';
+    textArea.style.height = '2em';
+    textArea.style.padding = 0;
+    textArea.style.border = 'none';
+    textArea.style.outline = 'none';
+    textArea.style.boxShadow = 'none';
+    textArea.style.background = 'transparent';
+    textArea.value = gps;
+    document.body.appendChild(textArea);
+    textArea.select();
     try {
-              var latdiv  = document.getElementById("0BC1X000000Co8x");
-        var londiv  = document.getElementById("0BC1X000000Co8y");
-      latdiv.value = lat;
-      londiv.value = lon;
+              var latdiv  = document.getElementById("0BC1X000000CoHf");
+        var londiv  = document.getElementById("0BC1X000000CoHg");
+      latdiv.value = lat.replace(".", ",");
+      londiv.value = lon.replace(".", ",");
     } catch (err) {
-      console.log('Oops, unable to copy');
+      console.log('Oops, unable to copy:' + err);
     }
-´}
+    document.body.removeChild(textArea);
+}
 
 	
 var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';

@@ -25,6 +25,7 @@
 	<meta name="twitter:data1" content="2 minutter">
 	<script type="text/javascript" async="" src="./Meld fra om feil på veglys – Haugaland Kraft_files/linkid.js"></script><script src="./Meld fra om feil på veglys – Haugaland Kraft_files/298136814237353" async=""></script><script async="" src="./Meld fra om feil på veglys – Haugaland Kraft_files/fbevents.js"></script><script type="text/javascript" async="" src="./Meld fra om feil på veglys – Haugaland Kraft_files/hotjar-1753266.js"></script><script type="text/javascript" async="" src="./Meld fra om feil på veglys – Haugaland Kraft_files/analytics.js"></script><script async="" src="./Meld fra om feil på veglys – Haugaland Kraft_files/gtm.js"></script><script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://hkraft.no/#organization","name":"Haugaland Kraft AS","url":"https://hkraft.no/","sameAs":["https://www.facebook.com/HaugalandKraft/","https://www.instagram.com/haugalandkraft/","https://www.linkedin.com/company/haugaland-kraft/"],"logo":{"@type":"ImageObject","@id":"https://hkraft.no/#logo","inLanguage":"nb-NO","url":"https://hkraft.no/wp-content/uploads/2019/03/HK_logo_RGB_primaer-payoff.png","contentUrl":"https://hkraft.no/wp-content/uploads/2019/03/HK_logo_RGB_primaer-payoff.png","width":2500,"height":2061,"caption":"Haugaland Kraft AS"},"image":{"@id":"https://hkraft.no/#logo"}},{"@type":"WebSite","@id":"https://hkraft.no/#website","url":"https://hkraft.no/","name":"Haugaland Kraft","description":"","publisher":{"@id":"https://hkraft.no/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://hkraft.no/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"nb-NO"},{"@type":"WebPage","@id":"https://hkraft.no/meld-inn-morke-gatelys/#webpage","url":"https://hkraft.no/meld-inn-morke-gatelys/","name":"Meld fra om feil p\u00e5 veglys &ndash; Haugaland Kraft","isPartOf":{"@id":"https://hkraft.no/#website"},"datePublished":"2019-01-24T08:17:43+00:00","dateModified":"2021-04-16T11:03:57+00:00","breadcrumb":{"@id":"https://hkraft.no/meld-inn-morke-gatelys/#breadcrumb"},"inLanguage":"nb-NO","potentialAction":[{"@type":"ReadAction","target":["https://hkraft.no/meld-inn-morke-gatelys/"]}]},{"@type":"BreadcrumbList","@id":"https://hkraft.no/meld-inn-morke-gatelys/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://hkraft.no/","url":"https://hkraft.no/","name":"Hjem"}},{"@type":"ListItem","position":2,"item":{"@id":"https://hkraft.no/meld-inn-morke-gatelys/#webpage"}}]}]}</script>
 	<!-- / Yoast SEO plugin. -->
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyA4AoJZ0QVLdujmB6J1Gz8ZeBxRrmdiyY8&sensor=false"></script>
 
   <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
   <script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
@@ -382,9 +383,11 @@ height: 500px;
 	<div  id="mapDiv" style="display: none" ></div>
 
 
-Location (Latitude): <input  id="0BC1X000000CoHf" name="0BC1X000000CoHf" size="20" type="text"  /><br>
+Latitude: <input  id="0BC1X000000CoHf" name="0BC1X000000CoHf" size="20" type="text"  /><br>
 
-Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="20" type="text"  /><br>
+Longitude:<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="20" type="text"  /><br>
+Veglysets estimerte adresse:<input  id="00N1X00000DMiHz" name="00N1X00000DMiHz" size="20" type="text"  /><br>
+
 
 
             <div>
@@ -526,7 +529,22 @@ getLocation();
 
         }
       })();
-      
+      function getReverseGeocodingData(lat, lng) {
+    var latlng = new google.maps.LatLng(lat, lng);
+    // This is making the Geocode request
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        if (status !== google.maps.GeocoderStatus.OK) {
+            alert(status);
+        }
+        // This is checking to see if the Geoeode Status is OK before proceeding
+        if (status == google.maps.GeocoderStatus.OK) {
+            var address = (results[0].formatted_address);
+             var addressInput  = document.getElementById("00N1X00000DMiHz");
+             addressInput.value = address;
+        }
+    });
+}
     </script>
     </div>
   
@@ -856,6 +874,7 @@ function onMapClick(e) {
     try {
               var latdiv  = document.getElementById("0BC1X000000CoHf");
         var londiv  = document.getElementById("0BC1X000000CoHg");
+        getReverseGeocodingData(lat, lon); 
       latdiv.value = lat.replace(".", ",");
       londiv.value = lon.replace(".", ",");
     } catch (err) {

@@ -290,7 +290,7 @@ height: 500px;
       window.hkraftFormPageConfirmationImage = "https:\/\/hkraft.no\/wp-content\/uploads\/2019\/01\/haugaland-kraft-meld-om-morke-gatelys-02.svg";
     </script>
     <div>
-<form class="form" id="veglysForm" action="https://hkraft--test.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" onsubmit="veglysSubmit();">
+<form class="form" name="veglysForm" id="veglysForm" action="https://hkraft--test.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" onsubmit="veglysSubmit();">
 <input type=hidden name="orgid" value="00D1X0000008eHm">
 <input type=hidden name="retURL" value="https://hkraft.no/">
 <input type="hidden" name="reason" id="reason" value="Veglys">
@@ -394,8 +394,8 @@ Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="2
                      Omfang <!---->
                   </legend>
                   <ul class="form__field--radio">
-                     <li><label><input type="radio" name="Omfang" tabindex="0" value="1"> <span>Ett veglys</span></label></li>
-                     <li><label><input type="radio" name="Omfang" tabindex="0" value="9"> <span>Flere veglys</span></label></li>
+                     <li><label><input type="radio" name="Omfang" tabindex="0" value="Ett veglys"> <span>Ett veglys</span></label></li>
+                     <li><label><input type="radio" name="Omfang" tabindex="0" value="Flere veglys"> <span>Flere veglys</span></label></li>
                   </ul>
                   <!---->
                </fieldset>
@@ -408,10 +408,10 @@ Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="2
                      Type feil <!---->
                   </legend>
                   <ul class="form__field--radio">
-                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="1"> <span>Lyser ikke</span></label></li>
-                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="2"> <span>Blinker</span></label></li>
-                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="3"> <span>Skadet mast eller bardun</span></label></li>
-                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="4"> <span>Annet (beskriv i feltet nedenfor)</span></label></li>
+                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="Lyser ikke"> <span>Lyser ikke</span></label></li>
+                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="Blinker"> <span>Blinker</span></label></li>
+                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="Skadet mast eller bardun"> <span>Skadet mast eller bardun</span></label></li>
+                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="Annet"> <span>Annet (beskriv i feltet nedenfor)</span></label></li>
                   </ul>
                   <!---->
                </fieldset>
@@ -476,6 +476,23 @@ Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="2
 </form>
            
  <script>
+ 
+ function veglysSubmit() {
+      var hiddenSubject  = document.getElementById("subject");
+      var kommune  = document.forms.veglysForm.kommune.value
+      var omfang  = document.forms.veglysForm.Omfang.value
+      var feiltype  = document.forms.veglysForm.Feiltype.value
+      var Stolpenummer  = document.getElementById("00N1X00000DMUj4").value;
+
+      var subjtext = kommune + ': ' + omfang + ' ' + feiltype + ' ' + Stolpenummer;
+      window.alert(subjtext);
+      document.veglysForm.subject.value = subjtext
+      
+     window.alert("ayaya!");
+//console.log(document.veglysForm.subject.value);
+      return false;
+
+}
       var div  = document.getElementById("location");
       function getLocation() {
         if (navigator.geolocation) {
@@ -737,15 +754,7 @@ var MAIN = {"nonce":"de70b23c58","themedir":"https:\/\/hkraft.no\/wp-content\/th
 
 <div id="hkraft-puzzle" class="intelecomchat"><div class="intelecomchatstarter itc_Chat__starter intelecomStarterRight intelecomStarterMiddle" style="display:none;"></div></div>
 <script>
-function veglysSubmit() {
-      var hiddenSubject  = document.getElementById("subject");
-      var kommune  = document.getElementById("kommune").value;
-      var omfang  = document.getElementById("Omfang").value;
-      var feiltype  = document.getElementById("Feiltype").value;
-      document.veglysForm.subject.value = kommune + ': ' + omfang + " " + feiltype;
-      return true;
 
-}
   // puzzel init
   document.addEventListener('DOMContentLoaded', function(){
 

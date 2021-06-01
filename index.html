@@ -290,7 +290,7 @@ height: 500px;
       window.hkraftFormPageConfirmationImage = "https:\/\/hkraft.no\/wp-content\/uploads\/2019\/01\/haugaland-kraft-meld-om-morke-gatelys-02.svg";
     </script>
     <div>
-<form class="form" id="veglysForm" action="https://hkraft--test.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+<form class="form" id="veglysForm" action="https://hkraft--test.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" onsubmit="veglysSubmit();">
 <input type=hidden name="orgid" value="00D1X0000008eHm">
 <input type=hidden name="retURL" value="https://hkraft.no/">
 <input type="hidden" name="reason" id="reason" value="Veglys">
@@ -737,14 +737,14 @@ var MAIN = {"nonce":"de70b23c58","themedir":"https:\/\/hkraft.no\/wp-content\/th
 
 <div id="hkraft-puzzle" class="intelecomchat"><div class="intelecomchatstarter itc_Chat__starter intelecomStarterRight intelecomStarterMiddle" style="display:none;"></div></div>
 <script>
-document.getElementById("veglysForm").onsubmit = function() {veglysFunction()};
-
-function veglysFunction() {
+function veglysSubmit() {
       var hiddenSubject  = document.getElementById("subject");
       var kommune  = document.getElementById("kommune").value;
       var omfang  = document.getElementById("Omfang").value;
       var feiltype  = document.getElementById("Feiltype").value;
-      hiddenSubject.value = kommune + ': ' + omfang + " " + feiltype;
+      document.veglysForm.subject.value = kommune + ': ' + omfang + " " + feiltype;
+      return true;
+
 }
   // puzzel init
   document.addEventListener('DOMContentLoaded', function(){

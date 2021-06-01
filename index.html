@@ -485,12 +485,8 @@ Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="2
       var Stolpenummer  = document.getElementById("00N1X00000DMUj4").value;
 
       var subjtext = kommune + ': ' + omfang + ' ' + feiltype + ' ' + Stolpenummer;
-      window.alert(subjtext);
       document.veglysForm.subject.value = subjtext
-      
-     window.alert("ayaya!");
-//console.log(document.veglysForm.subject.value);
-      return false;
+      return true;
 
 }
       var div  = document.getElementById("location");

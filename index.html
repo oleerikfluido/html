@@ -492,6 +492,23 @@ Veglysets estimerte adresse:<input  id="00N1X00000DMiHz" name="00N1X00000DMiHz" 
       return true;
 
 }
+      function getReverseGeocodingData(lat, lng) {
+    var latlng = new google.maps.LatLng(lat, lng);
+    // This is making the Geocode request
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        if (status !== google.maps.GeocoderStatus.OK) {
+            alert(status);
+        }
+        // This is checking to see if the Geoeode Status is OK before proceeding
+        if (status == google.maps.GeocoderStatus.OK) {
+            var address = (results[0].formatted_address);
+             var addressInput  = document.getElementById("00N1X00000DMiHz");
+             addressInput.value = address;
+        }
+    });
+}	 
+	 
       var div  = document.getElementById("location");
       function getLocation() {
         if (navigator.geolocation) {
@@ -507,6 +524,8 @@ Veglysets estimerte adresse:<input  id="00N1X00000DMiHz" name="00N1X00000DMiHz" 
         var lon  = document.getElementById("0BC1X000000CoHg");
         var latval = String(position.coords.latitude)
 	var lonval = String(position.coords.longitude)
+	getReverseGeocodingData(latval, lonval); 
+
         lat.value=latval.replace(".", ",");
         lon.value=lonval.replace(".", ",");
         
@@ -529,22 +548,7 @@ getLocation();
 
         }
       })();
-      function getReverseGeocodingData(lat, lng) {
-    var latlng = new google.maps.LatLng(lat, lng);
-    // This is making the Geocode request
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-        if (status !== google.maps.GeocoderStatus.OK) {
-            alert(status);
-        }
-        // This is checking to see if the Geoeode Status is OK before proceeding
-        if (status == google.maps.GeocoderStatus.OK) {
-            var address = (results[0].formatted_address);
-             var addressInput  = document.getElementById("00N1X00000DMiHz");
-             addressInput.value = address;
-        }
-    });
-}
+
     </script>
     </div>
   

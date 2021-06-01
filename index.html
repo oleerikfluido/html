@@ -290,13 +290,14 @@ height: 500px;
       window.hkraftFormPageConfirmationImage = "https:\/\/hkraft.no\/wp-content\/uploads\/2019\/01\/haugaland-kraft-meld-om-morke-gatelys-02.svg";
     </script>
     <div>
-<form class="form" action="https://hkraft--veglys.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+<form class="form" id="veglysForm" action="https://hkraft--veglys.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
 <input type=hidden name="orgid" value="00D1X0000000MxN">
 <input type=hidden name="retURL" value="https://static.euronews.com/articles/320895/1024x576_320895.jpg">
 <input type="hidden" name="reason" id="reason" value="Veglys">
-<input type="hidden" name="00N1X00000B5uSp" id="00N1X00000B5uSp" value=1>
-<input type="hidden" name="recordType" id="recordType" value="0121X000002QCoZQAW">
-	<input type="hidden" name="00N1X00000B5uSr" value="Feil på gatelys">
+<input type="hidden" name="subject" id="subject" value="">
+<input type="hidden" name="00N3X00000MK6Gv" id="00N3X00000MK6Gv" value=1>
+<input type="hidden" name="recordType" id="recordType" value="0123X000000wxUpQAI">
+	<input type="hidden" name="00N3X00000MK6Gx" value="Feil på gatelys">
 
    <div class="form__top"></div>
    <div class="form__pagination alignfull">
@@ -339,26 +340,26 @@ height: 500px;
             <div>
                <!----> <!----> <!----> <!----> 
                <div class="form__field-group form__field--select">
-                  <label for="39-19">
+                  <label for="kommune">
                      Kommune <!---->
                   </label>
                   <div class="form__field--select-wrapper">
-                     <select id="39-19" name="input_19" tabindex="0">
+                     <select id="kommune" name="kommune" tabindex="0">
                         <option value="0">Velg kommune:</option>
-                        <option value="1145">Bokn</option>
-                        <option value="4611">Etne</option>
-                        <option value="1106">Haugesund</option>
-                        <option value="1149">Karmøy</option>
-                        <option value="4617">Kvinnherad</option>
-                        <option value="1135">Sauda</option>
-                        <option value="4614">Stord</option>
-                        <option value="1134">Suldal</option>
-                        <option value="4612">Sveio</option>
-                        <option value="1146">Tysvær</option>
-                        <option value="1151">Utsira</option>
-                        <option value="1160">Vindafjord</option>
-                        <option value="4613">Bømlo</option>
-                        <option value="4615">Fitjar</option>
+                        <option value="Bokn">Bokn</option>
+                        <option value="Etne">Etne</option>
+                        <option value="Haugesund">Haugesund</option>
+                        <option value="Karmøy">Karmøy</option>
+                        <option value="Kvinnherad">Kvinnherad</option>
+                        <option value="Sauda">Sauda</option>
+                        <option value="Stord">Stord</option>
+                        <option value="Suldal">Suldal</option>
+                        <option value="Sveio">Sveio</option>
+                        <option value="Tysvær">Tysvær</option>
+                        <option value="Utsira">Utsira</option>
+                        <option value="Vindafjord">Vindafjord</option>
+                        <option value="Bømlo">Bømlo</option>
+                        <option value="Fitjar">Fitjar</option>
                      </select>
                   </div>
                   <!---->
@@ -368,10 +369,10 @@ height: 500px;
             <div>
                <!----> <!----> <!----> <!----> <!----> 
                <div class="form__field-group form__field--text">
-                  <label for="subject">
+                  <label for="00N1X00000DMUj4">
                      Stolpenummer <!----> <!---->
                   </label>
-                  <input name="subject" id="subject" placeholder="Skriv 0 om du ikke har stolpenummeret" required="required" tabindex="0" type="text"> <!---->
+                  <input name="00N1X00000DMUj4" id="00N1X00000DMUj4" placeholder="Skriv 0 om du ikke har stolpenummeret" required="required" tabindex="0" type="text"> <!---->
                </div>
                <!---->
             </div>
@@ -380,9 +381,10 @@ height: 500px;
 	<div  id="mapDiv" style="display: none" ></div>
 
 
-Location (Latitude):<input  id="0BC1X000000CoHf" name="0BC1X000000CoHf" size="20" type="text"   DISABLED /><br>
+Location (Latitude):<input  id="0BC1X000000ColQ" name="0BC1X000000ColQ" size="20" type="text" DISABLED /><br>
 
-Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="20" type="text"  DISABLED /><br>
+Location (Longitude):<input  id="0BC1X000000ColR" name="0BC1X000000ColR" size="20" type="text" DISABLED /><br>
+
 
             <div>
                <!----> <!----> <!----> 
@@ -391,8 +393,8 @@ Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="2
                      Omfang <!---->
                   </legend>
                   <ul class="form__field--radio">
-                     <li><label><input type="radio" name="input_20" tabindex="0" value="1"> <span>Ett veglys</span></label></li>
-                     <li><label><input type="radio" name="input_20" tabindex="0" value="9"> <span>Flere veglys</span></label></li>
+                     <li><label><input type="radio" name="Omfang" tabindex="0" value="1"> <span>Ett veglys</span></label></li>
+                     <li><label><input type="radio" name="Omfang" tabindex="0" value="9"> <span>Flere veglys</span></label></li>
                   </ul>
                   <!---->
                </fieldset>
@@ -405,10 +407,10 @@ Location (Longitude):<input  id="0BC1X000000CoHg" name="0BC1X000000CoHg" size="2
                      Type feil <!---->
                   </legend>
                   <ul class="form__field--radio">
-                     <li><label><input type="radio" name="input_5" tabindex="0" value="1"> <span>Lyser ikke</span></label></li>
-                     <li><label><input type="radio" name="input_5" tabindex="0" value="2"> <span>Blinker</span></label></li>
-                     <li><label><input type="radio" name="input_5" tabindex="0" value="3"> <span>Skadet mast eller bardun</span></label></li>
-                     <li><label><input type="radio" name="input_5" tabindex="0" value="4"> <span>Annet (beskriv i feltet nedenfor)</span></label></li>
+                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="1"> <span>Lyser ikke</span></label></li>
+                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="2"> <span>Blinker</span></label></li>
+                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="3"> <span>Skadet mast eller bardun</span></label></li>
+                     <li><label><input type="radio" name="Feiltype" tabindex="0" value="4"> <span>Annet (beskriv i feltet nedenfor)</span></label></li>
                   </ul>
                   <!---->
                </fieldset>
@@ -734,6 +736,15 @@ var MAIN = {"nonce":"de70b23c58","themedir":"https:\/\/hkraft.no\/wp-content\/th
 
 <div id="hkraft-puzzle" class="intelecomchat"><div class="intelecomchatstarter itc_Chat__starter intelecomStarterRight intelecomStarterMiddle" style="display:none;"></div></div>
 <script>
+document.getElementById("veglysForm").onsubmit = function() {veglysFunction()};
+
+function veglysFunction() {
+      var hiddenSubject  = document.getElementById("subject");
+      var kommune  = document.getElementById("kommune").value;
+      var omfang  = document.getElementById("Omfang").value;
+      var feiltype  = document.getElementById("Feiltype").value;
+      hiddenSubject.value = kommune + ': ' + omfang + " " + feiltype;
+}
   // puzzel init
   document.addEventListener('DOMContentLoaded', function(){
 

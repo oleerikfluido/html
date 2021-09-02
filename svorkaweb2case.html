@@ -1,0 +1,50 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://svorkaas--partial.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+
+<input type=hidden name="orgid" value="00D7Y0000001RPf">
+<input type=hidden name="retURL" value="https://svorka.no/">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="ole.erik.brennhagen@fluidogroup.com">                            -->
+<!--  ----------------------------------------------------------------------  -->
+
+<label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+
+<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+
+<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+
+<label for="description">Description</label><textarea name="description"></textarea><br>
+
+Hva gjelder henvendelsen?:<select  id="00N7Y000008SYpA" name="00N7Y000008SYpA" title="Hva gjelder henvendelsen?"><option value="">--None--</option><option value="Bredbånd">Bredbånd</option>
+<option value="Fiberutbygging">Fiberutbygging</option>
+<option value="Feil på leveranse">Feil på leveranse</option>
+<option value="TV">TV</option>
+<option value="Strøm">Strøm</option>
+<option value="Faktura">Faktura</option>
+<option value="Annet">Annet</option>
+<option value="Bestilling">Bestilling</option>
+</select><br>
+
+<label for="company">Company</label><input  id="company" maxlength="80" name="company" size="20" type="text" /><br>
+
+<input type="submit" name="submit">
+
+</form>

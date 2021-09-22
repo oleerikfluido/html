@@ -92,4 +92,23 @@ Hva gjelder henvendelsen?:<select  id="00N7Y000008SYpA" name="00N7Y000008SYpA" t
 	} else {
 		initESW('https://service.force.com');
 	}
+	
+	
+	function checkAvailability() {
+            const elementEnabled = document.getElementsByClassName('uiButton helpButtonEnabled');
+            const elementDisabled = document.getElementsByClassName('uiButton helpButtonDisabled');
+            if(elementEnabled && elementEnabled.length > 0) {
+                document.getElementsByClassName('embeddedServiceHelpButton').item(0).style.display = "block";
+            }
+            if(elementDisabled && elementDisabled.length > 0) {
+                document.getElementsByClassName('embeddedServiceHelpButton').item(0).style.display = "none";
+            }     
+        }
+       
+        window.setInterval(function () {
+            checkAvailability();
+        }, 500);
 </script>
+
+	
+	

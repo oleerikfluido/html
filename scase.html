@@ -1,7 +1,7 @@
 
 
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <form action="https://svorkaas--partial.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
 
 <input type=hidden name="orgid" value="00D7Y0000001RPf">
@@ -31,7 +31,9 @@ Hva gjelder henvendelsen?:<select  id="00N7Y000008SYpA" name="00N7Y000008SYpA" t
 
 </form>
 
-  <style type='text/css'>
+
+
+<style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
 		font-family: "Arial", sans-serif;
@@ -45,10 +47,10 @@ Hva gjelder henvendelsen?:<select  id="00N7Y000008SYpA" name="00N7Y000008SYpA" t
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = 'nb'; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-		embedded_svc.settings.defaultMinimizedText = 'Chat med oss'; //(Defaults to Chat with an Expert)
-		embedded_svc.settings.disabledMinimizedText = 'Opprett en Sak'; //(Defaults to Agent Offline)
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
@@ -77,7 +79,7 @@ Hva gjelder henvendelsen?:<select  id="00N7Y000008SYpA" name="00N7Y000008SYpA" t
 				buttonId: '5737Y000000CeLx',
 				baseLiveAgentURL: 'https://d.la3-c1cs-fra.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'Svorka_Chat',
-				isOfflineSupportEnabled: true
+				isOfflineSupportEnabled: false
 			}
 		);
 	};
@@ -91,8 +93,7 @@ Hva gjelder henvendelsen?:<select  id="00N7Y000008SYpA" name="00N7Y000008SYpA" t
 		document.body.appendChild(s);
 	} else {
 		initESW('https://service.force.com');
-	}
-	
+	}	
 	
 	function checkAvailability() {
             const elementEnabled = document.getElementsByClassName('uiButton helpButtonEnabled');
